@@ -76,10 +76,10 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
           script: |
             # Выполняет pull образа с DockerHub
-            docker pull olgawollny/project.v1
+            sudo docker pull olgawollny/project.v1
             #остановка всех контейнеров
-            docker stop $(sudo docker ps -a -q)
-            docker run --rm -d -p 5000:5000 olgawollny/project.v1
+            sudo docker stop $(sudo docker ps -a -q)
+            sudo docker run --rm -d -p 5000:5000 olgawollny/project.v1
   
   send_message:
     runs-on: ubuntu-latest
